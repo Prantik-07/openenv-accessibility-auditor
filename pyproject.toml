@@ -17,3 +17,6 @@ dependencies = [
     "uvicorn",
     "openenv-core"
 ]
+
+[project.scripts]
+server = "server.app:start"

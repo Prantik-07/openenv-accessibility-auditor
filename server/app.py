@@ -1,10 +1,15 @@
+import sys
+import os
+# This ensures it can still read your env.py and models.py files
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
+import uvicorn
 from fastapi import FastAPI
 from env import AccessibilityEnv
 from models import Action
 
 app = FastAPI()
 
-# Initialize a default environment to keep the web server alive
 default_html = """<div id="hero"><img src="/assets/hero.jpg" alt="hero"><h1>Welcome</h1></div>"""
 server_env = AccessibilityEnv(default_html)
 
@@ -28,6 +33,5 @@ def step(action: Action):
         "info": info
     }
 
-@app.get("/state")
-def state():
-    return {"status": "running"}
+def start():
+    uvicorn.run("server.app:app", host="0.0.0.0", port=7860)
