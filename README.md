@@ -1,3 +1,11 @@
+---
+title: Openenv Accessibility Auditor
+emoji: ♿
+colorFrom: blue
+colorTo: green
+sdk: docker
+pinned: false
+---
 # Accessibility Pipeline Auditor (OpenEnv)
 
 ## Motivation and Real-World Utility
