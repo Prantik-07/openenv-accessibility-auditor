@@ -16,4 +16,4 @@ jobs:
       - name: Push to hub
         env:
           HF_TOKEN: ${{ secrets.HF_TOKEN }}
-        run: git push https://Prantik-07:$HF_TOKEN@huggingface.co/spaces/Prantik-07/openenv-accessibility-auditor main
+        run: git push --force https://Prantik-07:$HF_TOKEN@huggingface.co/spaces/Prantik-07/openenv-accessibility-auditor main
