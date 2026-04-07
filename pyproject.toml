@@ -1,0 +1,19 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "openenv-accessibility-auditor"
+version = "0.1.0"
+description = "OpenEnv WCAG Accessibility Auditor"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "pydantic==2.6.4",
+    "beautifulsoup4==4.12.3",
+    "openai==1.14.0",
+    "httpx==0.27.2",
+    "fastapi",
+    "uvicorn",
+    "openenv-core"
+]
