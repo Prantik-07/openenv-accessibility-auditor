@@ -5,11 +5,15 @@ from env import AccessibilityEnv
 from models import Action
 
 # 1. INITIALIZE OPENAI CLIENT
-client = OpenAI(
-    base_url=os.environ.get("API_BASE_URL", "https://api.openai.com/v1"),
-    api_key=os.environ.get("HF_TOKEN", os.environ.get("OPENAI_API_KEY", "dummy-key"))
-)
+API_BASE_URL = os.environ.get("API_BASE_URL", "https://api.openai.com/v1")
 model_name = os.environ.get("MODEL_NAME", "gpt-3.5-turbo")
+HF_TOKEN = os.environ.get("HF_TOKEN")
+
+# Give OpenAI a dummy key only if HF_TOKEN is empty so it doesn't crash on startup
+client = OpenAI(
+    base_url=API_BASE_URL,
+    api_key=HF_TOKEN if HF_TOKEN else "dummy-key"
+)
 
 # 2. DEFINE THE TASKS
 TASKS = [
